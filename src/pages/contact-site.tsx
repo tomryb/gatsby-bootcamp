@@ -1,15 +1,14 @@
 import { Link } from "gatsby";
 import React from "react"
-import Footer from "../components/footer";
+import Layout from "../components/layout";
 
 const ContactSite = () => {
   return (
-    <div>
-      <h1>Contact</h1>
-      <p>test</p>
-      <Link to="https://www.google.com">Google</Link>
-      <Footer></Footer>
-    </div>
+      <Layout>
+        <h1>Contact</h1>
+        <p>test</p>
+        <Link to="https://www.google.com">Google</Link>
+      </Layout>
   )
 }
 

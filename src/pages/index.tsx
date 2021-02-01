@@ -1,16 +1,15 @@
 import React from "react";
 import { Link } from 'gatsby';
-import Footer from "../components/footer";
-import Header from '../components/header';
+import Layout from '../components/layout';
+import '../styles/index.scss'
+import { Col } from "react-bootstrap";
 
 const IndexRoute = () => {
   return (
-    <>
-      <Header></Header>
-      <h1>Hello</h1>
+    <Layout>
+      <Col><h1>Hello<span>dzbanie</span></h1></Col>
       <p>need a help <Link to="/contact-site">Contact me</Link></p>
-      <Footer></Footer>
-    </>
+    </Layout>
   )
 }
 
