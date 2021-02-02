@@ -10,7 +10,6 @@ const IndexRoute = () => {
     <Layout>
       <Head title="Home sweet home"></Head>
       <Col><h1>Hello<span>dzbanie</span></h1></Col>
-      <p>need a help <Link to="/contact-site">Contact me</Link></p>
     </Layout>
   )
 }
