@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import { graphql } from 'gatsby';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import Head from '../components/head';
 
 // do wyświetlania postów z repo
 
@@ -50,6 +51,7 @@ const Blog = (props: any) => {
 
   return (
     <Layout>
+      <Head title={props.data.contentfulBlogPost.title}></Head>
       {/* <h1>{props.data.markdownRemark.frontmatter.title}</h1>
       <p>{props.data.markdownRemark.frontmatter.date}</p>
       <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html}}></div> */}

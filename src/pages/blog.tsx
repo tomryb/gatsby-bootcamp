@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/layout";
 import { Link, graphql, useStaticQuery } from 'gatsby';
+import Head from '../components/head';
 
 const BlogPage = () => {
 
@@ -55,6 +56,7 @@ query {
     //posty z repo
 
     //   <Layout>
+    // <Head title="Blog"></Head>
     //   <h1>Blog</h1>
     //   <ol>
     //     {data.allMarkdownRemark.edges.map((edge: MarkdownInterface) => {
@@ -73,6 +75,7 @@ query {
     //posty z contentful
 
     <Layout>
+      <Head title="Blog"></Head>
       <h1>Blog</h1>
       <ol>
         {data.allContentfulBlogPost.edges.map((edge: MarkdownInterface) => {
