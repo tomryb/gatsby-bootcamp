@@ -5,6 +5,9 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: 'Pierwsza strona w gatsby mordo',
+    author: 'dis nygga'
+  },
   plugins: [`gatsby-plugin-sass`],
 }
