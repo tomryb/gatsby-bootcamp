@@ -4,18 +4,41 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 
 const BlogPage = () => {
 
+  //posty z repo
+
+  //   const data = useStaticQuery(graphql`
+  // query {
+  //   allMarkdownRemark {
+  //     edges {
+  //       node {
+  //         frontmatter {
+  //           title
+  //           date
+  //         }
+  //         fields {
+  //           slug
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  // `)
+
+  //posty z contentful
+
   const data = useStaticQuery(graphql`
 query {
-  allMarkdownRemark {
+  allContentfulBlogPost (
+    sort: {
+     fields: publishedDate,
+      order:DESC
+    }
+  ) {
     edges {
       node {
-        frontmatter {
-          title
-          date
-        }
-        fields {
-          slug
-        }
+        title
+        slug
+        publishedDate(formatString:"MMMM Do, YYYY")
       }
     }
   }
@@ -28,21 +51,43 @@ query {
   }
 
   return (
+
+    //posty z repo
+
+    //   <Layout>
+    //   <h1>Blog</h1>
+    //   <ol>
+    //     {data.allMarkdownRemark.edges.map((edge: MarkdownInterface) => {
+    //       return (
+    //         <li>
+    //           <Link to={`/blog/${edge.node.fields.slug}`}>
+    //             <h2>{edge.node.frontmatter.title}</h2>
+    //             <p>{edge.node.frontmatter.data}</p>
+    //           </Link>
+    //         </li>
+    //       )
+    //     })}
+    //   </ol>
+    // </Layout>
+
+    //posty z contentful
+
     <Layout>
       <h1>Blog</h1>
       <ol>
-        {data.allMarkdownRemark.edges.map((edge: MarkdownInterface) => {
+        {data.allContentfulBlogPost.edges.map((edge: MarkdownInterface) => {
           return (
             <li>
-              <Link to={`/blog/${edge.node.fields.slug}`}>
-                <h2>{edge.node.frontmatter.title}</h2>
-                <p>{edge.node.frontmatter.data}</p>
+              <Link to={`/blog/${edge.node.slug}`}>
+                <h2>{edge.node.title}</h2>
+                <p>{edge.node.publishedDate}</p>
               </Link>
             </li>
           )
         })}
       </ol>
     </Layout>
+
   )
 }
 
