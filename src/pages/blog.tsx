@@ -1,10 +1,9 @@
 import React from "react"
-import Layout from "../components/layout";
-import { Link, graphql, useStaticQuery } from 'gatsby';
-import Head from '../components/head';
+import Layout from "../components/layout"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import Head from "../components/head"
 
 const BlogPage = () => {
-
   //posty z repo
 
   //   const data = useStaticQuery(graphql`
@@ -28,31 +27,25 @@ const BlogPage = () => {
   //posty z contentful
 
   const data = useStaticQuery(graphql`
-query {
-  allContentfulBlogPost (
-    sort: {
-     fields: publishedDate,
-      order:DESC
-    }
-  ) {
-    edges {
-      node {
-        title
-        slug
-        publishedDate(formatString:"MMMM Do, YYYY")
+    query {
+      allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
+        edges {
+          node {
+            title
+            slug
+            publishedDate(formatString: "MMMM Do, YYYY")
+          }
+        }
       }
     }
-  }
-}
-`)
+  `)
   interface MarkdownInterface {
-    title: string,
-    data: string,
+    title: string
+    data: string
     node: any
   }
 
   return (
-
     //posty z repo
 
     //   <Layout>
@@ -90,8 +83,7 @@ query {
         })}
       </ol>
     </Layout>
-
   )
 }
 
-export default BlogPage;
+export default BlogPage

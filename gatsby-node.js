@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require("path")
 
 // nie potrzebujemy tego, tworzymy slug z contentful
 
@@ -16,8 +16,8 @@ const path = require('path');
 // }
 
 module.exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
-  const blogTemplate = path.resolve('./src/templates/blog.tsx');
+  const { createPage } = actions
+  const blogTemplate = path.resolve("./src/templates/blog.tsx")
 
   //do wyświetlania postów z repo
 
@@ -46,23 +46,23 @@ module.exports.createPages = async ({ graphql, actions }) => {
   // })
 
   const res = await graphql(`
-query {
-  allContentfulBlogPost {
-  edges {
-    node {
-      slug
+    query {
+      allContentfulBlogPost {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
-  }
-  }
-}
-`)
-  res.data.allContentfulBlogPost.edges.forEach((edge) => {
+  `)
+  res.data.allContentfulBlogPost.edges.forEach(edge => {
     createPage({
       component: blogTemplate,
       path: `/blog/${edge.node.slug}`,
       context: {
-        slug: edge.node.slug
-      }
+        slug: edge.node.slug,
+      },
     })
   })
 }

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import React from "react"
+import { Helmet } from "react-helmet"
+import { Link, graphql, useStaticQuery } from "gatsby"
 
 interface HeadInterface {
   title: string
@@ -8,17 +8,15 @@ interface HeadInterface {
 
 const Head = ({ title }: HeadInterface) => {
   const data = useStaticQuery(graphql`
-  query {
-site {
-  siteMetadata {
-    title
-  }
-}
-  }
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
   `)
-  return (
-    <Helmet title={`${title} | ${data.site.siteMetadata.title}`}></Helmet>
-  )
+  return <Helmet title={`${title} | ${data.site.siteMetadata.title}`}></Helmet>
 }
 
-export default Head;
+export default Head

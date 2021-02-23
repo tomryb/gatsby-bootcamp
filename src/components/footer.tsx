@@ -1,13 +1,11 @@
-import React from "react";
+import React from "react"
 
 const Footer = () => {
   return (
     <footer>
-      <p>
-        Created by me, Copyright 2021
-    </p>
+      <p>Created by me, Copyright 2021</p>
     </footer>
   )
 }
 
-export default Footer;
+export default Footer
